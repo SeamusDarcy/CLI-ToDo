@@ -22,7 +22,7 @@ public class Task {
         this.taskStatus = taskStatus;
     }
 
-    public int getID() {
+    public int getId() {
         return ID;
     }
 
@@ -33,6 +33,7 @@ public class Task {
     public Task(String title, int ID) {
         this.title = title;
         this.ID = ID;
+
     }
 
 

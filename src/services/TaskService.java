@@ -13,21 +13,20 @@ public class TaskService {
 
     }
 
-    public Task createTask(String title) {
+    public void createTask(String title) {
         Task task = new Task(title, idCounter++);
         tasks.add(task);
-        return task;
-
+        return;
     }
 
     public boolean deleteTask(int id) {
-        return tasks.removeIf(t -> t.getID() == id);
+        return tasks.removeIf(t -> t.getId() == id);
     }
 
 
-    public void changeStaus(int id, Status newStatus) {
+    public void changeStatus(int id, Status newStatus) {
         for (Task t : tasks) {
-            if (t.getID() == id) {
+            if (t.getId() == id) {
                 switch (newStatus) {
                     case TODO -> t.setTaskStatus(Status.TODO);
                     case IN_PROGRESS -> t.setTaskStatus(Status.IN_PROGRESS);
@@ -47,7 +46,7 @@ public class TaskService {
         System.out.println("-------------");
         for (Task task : tasks) {
             if (task.getTaskStatus() == Status.TODO) {
-                System.out.println(" -" + task.getTitle());
+                System.out.println(" -" + task.getTitle() + " [" +task.getId() + "]");
             }
         }
         System.out.println();

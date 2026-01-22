@@ -1,5 +1,6 @@
 package cli;
 
+import domain.Status;
 import services.TaskService;
 
 import java.util.Scanner;
@@ -44,7 +45,7 @@ public class CommandLoop {
                 case 1 -> {
                     String title;
                     while(true){
-                        System.out.println("Enter Task Title");
+                        System.out.print("Enter Task Title : ");
                         title = scanner.nextLine().trim();
                         if(title.isEmpty()){
                             System.out.println("Please enter a valid Title");
@@ -75,6 +76,55 @@ public class CommandLoop {
                         System.out.println("Could not find task");
                     }
                 }
+                case 3 -> {
+                    int id = 1;
+                    Status status;
+                    int choice;
+
+                    while(true) {
+                        System.out.print("Enter id of task to Change: ");
+                        if (scanner.hasNextInt()) {
+                            id = scanner.nextInt();
+                            break;
+                        } else {
+                            System.out.println("Please enter a valid Number");
+                            scanner.nextLine();
+                        }
+                    }
+                        while (true){
+                            System.out.println("1 -> To-Do");
+                            System.out.println("2 -> In Progress");
+                            System.out.println("3 -> Done");
+                            System.out.print("Please choice a a status for task");
+                            if (scanner.hasNextInt()) {
+                                choice = scanner.nextInt();
+                                if (choice > 0 && choice <4){
+                                    break;
+                                } else {
+                                    System.out.println("Number must be between 1-3");
+                                }
+
+                            } else {
+                                System.out.println("Please enter a valid number");
+                            }
+
+                        }
+                        switch (choice){
+                            case 1 -> taskService.changeStatus(id, Status.TODO);
+
+                            case 2 -> taskService.changeStatus(id, Status.IN_PROGRESS);
+
+                            case 3 -> taskService.changeStatus(id, Status.DONE);
+                        }
+                        System.out.println("Task Status Changed");
+                    }
+
+                case 4 -> {
+                    taskService.listTasks();
+
+                }
+                case 5 -> isRunning = false;
+
 
 
             }
