@@ -55,7 +55,7 @@ public class TaskService {
         System.out.println("-------------");
         for (Task task : tasks) {
             if (task.getTaskStatus() == Status.IN_PROGRESS) {
-                System.out.println(" -" + task.getTitle());
+                System.out.println(" -" + task.getTitle() + " [" +task.getId() + "]");
             }
         }
         System.out.println();
@@ -64,7 +64,7 @@ public class TaskService {
         System.out.println("-------------");
         for (Task task : tasks) {
             if (task.getTaskStatus() == Status.DONE) {
-                System.out.println(" -" + task.getTitle());
+                System.out.println(" -" + task.getTitle() + " [" +task.getId() + "]");
             }
 
 
