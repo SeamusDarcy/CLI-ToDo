@@ -1,7 +1,7 @@
-package main.java.services;
+package services;
 
-import main.java.domain.Status;
-import main.java.domain.Task;
+import domain.Status;
+import domain.Task;
 
 import java.util.ArrayList;
 
