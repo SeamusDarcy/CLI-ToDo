@@ -1,7 +1,7 @@
 package cli;
 
-import main.java.domain.Status;
-import main.java.services.TaskService;
+import domain.Status;
+import services.TaskService;
 
 import java.util.Scanner;
 

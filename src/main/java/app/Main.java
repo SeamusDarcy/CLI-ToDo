@@ -1,8 +1,8 @@
 package app;
 
-import main.java.domain.Status;
-import main.java.services.TaskService;
-import main.java.cli.CommandLoop;
+import domain.Status;
+import services.TaskService;
+import cli.CommandLoop;
 
 public class Main {
 
